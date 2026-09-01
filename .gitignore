@@ -41,3 +41,6 @@ orchestrator/storage
 .codex/
 .agents/
 .codegraph/
+
+# Landing build output
+landing/dist/

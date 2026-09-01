@@ -12,15 +12,20 @@ This folder builds the public marketing landing page (`LandingPage.tsx`) as a **
 ## Local dev
 
 ```bash
+npm install          # from the repo root - landing is an npm workspace
 cd landing
-npm install
 npm run dev
 ```
 
+`landing` must be installed from the repo root: it imports a file from
+`orchestrator/src`, so that tree needs its dependencies too. Its React,
+router, Vite and TypeScript versions are pinned to match `orchestrator/`
+so the bundle ends up with a single copy of each.
+
 ## Deploy to Vercel
 
-1. Import repo → **Root Directory: `landing`**.
-2. Framework preset: **Vite**.
+1. Import repo → **Root Directory: `landing`**, with "Include files outside root directory" enabled.
+2. Framework preset: **Vite**. `vercel.json` installs from the repo root (`cd .. && npm install`).
 3. Env: `VITE_APP_URL` = your app origin, e.g. `https://career-boardsbamboohr-production-5d85.up.railway.app`.
 4. Deploy.
 

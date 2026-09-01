@@ -1,4 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+/* The landing page source lives outside this package; Tailwind's automatic
+   source detection misses it depending on cwd, so declare it explicitly. */
+@source "../../orchestrator/src/client/pages/LandingPage.tsx";
+@source "./";
+@source "../index.html";
 
 html {
   scroll-behavior: smooth;

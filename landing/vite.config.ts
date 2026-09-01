@@ -15,6 +15,9 @@ export default defineConfig({
   publicDir: path.resolve(__dirname, "../orchestrator/public"),
   plugins: [react(), tailwindcss()],
   resolve: {
+    // LandingPage.tsx lives in the orchestrator tree, which has its own
+    // node_modules; force one copy of the React/router runtime for the bundle.
+    dedupe: ["react", "react-dom", "react-router-dom"],
     alias: {
       "@landing": path.resolve(
         __dirname,
